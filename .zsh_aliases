@@ -1,0 +1,4 @@
+alias cd="z"
+alias ls="eza --long --color=always --icons=always --no-user"
+alias la="eza -a --long --color=always --icons=always --no-user"
+
