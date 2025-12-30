@@ -40,6 +40,20 @@ if [ -f ~/.zsh_aliases ]; then
     source ~/.zsh_aliases
 fi
 
+# Hooks
+autoload -Uz add-zsh-hook
+## chpwd hooks (on cd into a directory)
+add-zsh-hook chpwd function() {
+  # Python venv activation hook
+  if [[ -d .venv ]]; then
+    source .venv/bin/activate
+  elif [[ -d venv ]]; then
+    source .venv/bin/activate
+  elif [[ -n "$VIRTUAL_ENV" ]]; then
+    deactivate
+  fi
+}
+
 # Other settings
 set KEYTIMEOUT 3
 
