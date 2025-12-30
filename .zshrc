@@ -30,6 +30,11 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -n 200'"
 ## https://github.com/junegunn/fzf-git.sh
 source ~/scripts/fzf-git/fzf-git.sh
 
+# Open buffer line in editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+
 # Aliases
 if [ -f ~/.zsh_aliases ]; then
     source ~/.zsh_aliases
